@@ -3,295 +3,449 @@
 <head>
 <meta charset="UTF-8"/>
 <meta name="viewport" content="width=device-width,initial-scale=1"/>
-<title>VibeCoding — Software SaaS para la Riviera Maya</title>
+<title>VibeCoding — Software para la Riviera Maya</title>
 <meta name="description" content="Desarrollo de software SaaS a medida para negocios en Playa del Carmen y la Riviera Maya. Stack moderno, IA integrada, deploy en la nube."/>
 <link rel="preconnect" href="https://fonts.googleapis.com"/>
-<link href="https://fonts.googleapis.com/css2?family=Syne:wght@400;500;600;700;800&family=DM+Sans:wght@300;400;500&display=swap" rel="stylesheet"/>
+<link href="https://fonts.googleapis.com/css2?family=Inter:ital,opsz,wght@0,14..32,300;0,14..32,400;0,14..32,500;0,14..32,600;1,14..32,300&display=swap" rel="stylesheet"/>
 <style>
 *{box-sizing:border-box;margin:0;padding:0}
 :root{
-  --bg:#080808;--bg2:#0f0f0f;--bg3:#161616;
-  --border:rgba(255,255,255,0.07);
-  --text:#f0f0ee;--text2:#888884;--text3:#444440;
-  --accent:#e8ff47;--accent2:#7fff6e;
-  --r:16px;
+  --bg:   #000;
+  --bg1:  #0a0a0a;
+  --bg2:  #111;
+  --line: rgba(255,255,255,0.08);
+  --t1:   #f5f5f7;
+  --t2:   #a1a1a6;
+  --t3:   #6e6e73;
+  --acc:  #2997ff;
+  --acc2: #30d158;
+  --r:    18px;
 }
-html{scroll-behavior:smooth}
-body{font-family:'DM Sans',system-ui,sans-serif;background:var(--bg);color:var(--text);overflow-x:hidden;line-height:1.5}
+html{scroll-behavior:smooth;-webkit-font-smoothing:antialiased}
+body{font-family:'Inter',system-ui,sans-serif;background:var(--bg);color:var(--t1);overflow-x:hidden;line-height:1.5}
+a{text-decoration:none;color:inherit}
 
-/* NAV */
-nav{position:fixed;top:0;left:0;right:0;z-index:100;padding:0 40px;height:56px;display:flex;align-items:center;justify-content:space-between;border-bottom:0.5px solid var(--border);background:rgba(8,8,8,0.85);backdrop-filter:blur(16px)}
-.nav-brand{font-family:'Syne',sans-serif;font-weight:800;font-size:18px;color:var(--text);text-decoration:none;letter-spacing:-0.5px}
-.nav-brand span{color:var(--accent)}
-.nav-links{display:flex;gap:28px;list-style:none}
-.nav-links a{font-size:13px;color:var(--text2);text-decoration:none;transition:color .15s}
-.nav-links a:hover{color:var(--text)}
-.nav-cta{font-size:13px;font-weight:500;background:var(--accent);color:#080808;border:none;border-radius:99px;padding:7px 18px;cursor:pointer;text-decoration:none;font-family:'DM Sans',sans-serif;transition:opacity .15s}
-.nav-cta:hover{opacity:.85}
-
-/* HERO */
-.hero{min-height:100vh;display:flex;flex-direction:column;align-items:flex-start;justify-content:center;padding:80px 40px 60px;position:relative;overflow:hidden;max-width:1100px;margin:0 auto}
-.hero-eyebrow{font-size:11px;font-weight:500;letter-spacing:.18em;text-transform:uppercase;color:var(--text3);margin-bottom:28px;display:flex;align-items:center;gap:10px}
-.hero-eyebrow::before{content:'';width:28px;height:1px;background:var(--text3)}
-.hero h1{font-family:'Syne',sans-serif;font-size:clamp(52px,8vw,104px);font-weight:800;letter-spacing:-3px;line-height:.96;margin-bottom:32px;max-width:820px}
-.hero h1 .y{color:var(--accent)}
-.hero h1 .g{color:var(--accent2)}
-.hero-sub{font-size:18px;color:var(--text2);max-width:520px;line-height:1.7;margin-bottom:48px;font-weight:300}
-.hero-actions{display:flex;gap:14px;flex-wrap:wrap;margin-bottom:80px}
-.btn-p{font-size:14px;font-weight:500;background:var(--accent);color:#080808;border:none;border-radius:99px;padding:13px 28px;cursor:pointer;text-decoration:none;font-family:'DM Sans',sans-serif;transition:opacity .15s}
-.btn-p:hover{opacity:.85}
-.btn-g{font-size:14px;font-weight:400;background:transparent;color:var(--text2);border:0.5px solid var(--border);border-radius:99px;padding:13px 28px;cursor:pointer;text-decoration:none;font-family:'DM Sans',sans-serif;transition:all .15s}
-.btn-g:hover{border-color:rgba(255,255,255,0.2);color:var(--text)}
-.hero-strip{display:flex;gap:40px;flex-wrap:wrap}
-.hero-stat{display:flex;flex-direction:column;gap:3px}
-.hero-stat-n{font-family:'Syne',sans-serif;font-size:28px;font-weight:800;color:var(--text);letter-spacing:-1px}
-.hero-stat-l{font-size:11px;color:var(--text3);letter-spacing:.08em;text-transform:uppercase}
-
-/* GRID DE PROYECTOS */
-.projects{padding:100px 40px;max-width:1100px;margin:0 auto}
-.section-label{font-size:11px;font-weight:500;letter-spacing:.18em;text-transform:uppercase;color:var(--text3);margin-bottom:48px;display:flex;align-items:center;gap:10px}
-.section-label::before{content:'';width:28px;height:1px;background:var(--text3)}
-.proj-grid{display:grid;grid-template-columns:repeat(2,1fr);gap:2px}
-.proj-card{background:var(--bg2);padding:40px;transition:background .2s;position:relative;overflow:hidden}
-.proj-card:hover{background:var(--bg3)}
-.proj-card.featured{grid-column:span 2;display:grid;grid-template-columns:1fr 1fr;gap:40px;align-items:center}
-.proj-number{font-family:'Syne',sans-serif;font-size:11px;font-weight:700;letter-spacing:.12em;text-transform:uppercase;color:var(--text3);margin-bottom:20px}
-.proj-title{font-family:'Syne',sans-serif;font-size:28px;font-weight:800;letter-spacing:-0.8px;margin-bottom:12px}
-.proj-desc{font-size:14px;color:var(--text2);line-height:1.7;margin-bottom:24px;max-width:380px}
-.proj-tags{display:flex;gap:6px;flex-wrap:wrap;margin-bottom:28px}
-.ptag{font-size:10px;font-weight:500;letter-spacing:.06em;text-transform:uppercase;padding:4px 10px;border-radius:99px;border:0.5px solid var(--border);color:var(--text3)}
-.ptag.live{background:rgba(127,255,110,0.08);border-color:rgba(127,255,110,0.2);color:var(--accent2)}
-.ptag.dev{background:rgba(255,159,10,0.08);border-color:rgba(255,159,10,0.2);color:#ff9f0a}
-.proj-score{position:absolute;top:40px;right:40px;font-family:'Syne',sans-serif;font-size:36px;font-weight:800;letter-spacing:-1px;opacity:.15}
-.proj-score.perfect{opacity:.9;color:var(--accent)}
-.proj-link{display:inline-flex;align-items:center;gap:6px;font-size:13px;color:var(--accent);text-decoration:none;border-bottom:0.5px solid rgba(232,255,71,0.3);padding-bottom:2px;transition:opacity .15s}
-.proj-link:hover{opacity:.7}
-.proj-visual{background:var(--bg3);border:0.5px solid var(--border);border-radius:var(--r);padding:24px;font-size:12px;color:var(--text3);font-family:monospace}
-.code-line{margin-bottom:6px;line-height:1.8}
-.code-line .kw{color:#58a6ff}
-.code-line .str{color:#3fb950}
-.code-line .fn{color:#e8ff47}
-.code-line .cm{color:#444}
-
-/* STACK */
-.stack{padding:80px 40px;border-top:0.5px solid var(--border);max-width:1100px;margin:0 auto}
-.stack-items{display:flex;flex-wrap:wrap;gap:12px;margin-top:32px}
-.stack-item{padding:10px 18px;border:0.5px solid var(--border);border-radius:99px;font-size:13px;color:var(--text2);display:flex;align-items:center;gap:8px;transition:border-color .15s}
-.stack-item:hover{border-color:rgba(255,255,255,0.18)}
-.stack-dot{width:6px;height:6px;border-radius:50%;flex-shrink:0}
-
-/* PROCESO */
-.process{padding:80px 40px;background:var(--bg2);border-top:0.5px solid var(--border);border-bottom:0.5px solid var(--border)}
-.process-inner{max-width:1100px;margin:0 auto}
-.process-grid{display:grid;grid-template-columns:repeat(4,1fr);gap:2px;margin-top:48px}
-.process-step{padding:32px;background:var(--bg);position:relative}
-.step-n{font-family:'Syne',sans-serif;font-size:48px;font-weight:800;letter-spacing:-2px;color:var(--border);margin-bottom:16px;line-height:1}
-.step-title{font-family:'Syne',sans-serif;font-size:16px;font-weight:700;margin-bottom:8px}
-.step-desc{font-size:13px;color:var(--text2);line-height:1.65}
-
-/* CTA */
-.cta{padding:120px 40px;text-align:center;max-width:1100px;margin:0 auto}
-.cta h2{font-family:'Syne',sans-serif;font-size:clamp(40px,6vw,72px);font-weight:800;letter-spacing:-2.5px;line-height:1.0;margin-bottom:20px}
-.cta h2 span{color:var(--accent)}
-.cta p{font-size:17px;color:var(--text2);max-width:480px;margin:0 auto 40px;font-weight:300;line-height:1.7}
-.cta-btns{display:flex;gap:14px;justify-content:center;flex-wrap:wrap}
-
-/* FOOTER */
-footer{border-top:0.5px solid var(--border);padding:40px;display:flex;justify-content:space-between;align-items:center;flex-wrap:gap}
-.foot-brand{font-family:'Syne',sans-serif;font-weight:800;font-size:16px}
-.foot-brand span{color:var(--accent)}
-.foot-links{display:flex;gap:24px}
-.foot-links a{font-size:12px;color:var(--text3);text-decoration:none;transition:color .15s}
-.foot-links a:hover{color:var(--text2)}
-.foot-copy{font-size:11px;color:var(--text3)}
-
-@media(max-width:700px){
-  nav{padding:0 20px}
-  .nav-links{display:none}
-  .hero,.projects,.stack,.process-inner,.cta{padding-left:20px;padding-right:20px}
-  .proj-grid{grid-template-columns:1fr}
-  .proj-card.featured{grid-column:span 1;grid-template-columns:1fr}
-  .proj-visual{display:none}
-  .process-grid{grid-template-columns:1fr 1fr}
-  footer{flex-direction:column;gap:20px;text-align:center;padding:32px 20px}
-  .foot-links{flex-wrap:wrap;justify-content:center}
+/* ── NAV ── */
+nav{
+  position:fixed;top:0;left:0;right:0;z-index:100;
+  height:52px;padding:0 max(40px,5vw);
+  display:flex;align-items:center;justify-content:space-between;
+  background:rgba(0,0,0,0.72);backdrop-filter:saturate(180%) blur(20px);
+  border-bottom:0.5px solid var(--line);
 }
+.n-brand{font-size:17px;font-weight:600;letter-spacing:-0.3px;color:var(--t1)}
+.n-brand b{color:var(--acc);font-weight:600}
+.n-links{display:flex;gap:32px}
+.n-links a{font-size:13px;color:var(--t2);transition:color .15s}
+.n-links a:hover{color:var(--t1)}
+.n-cta{
+  font-size:13px;font-weight:500;
+  background:var(--acc);color:#fff;
+  border:none;border-radius:999px;padding:7px 16px;
+  cursor:pointer;transition:opacity .15s;
+}
+.n-cta:hover{opacity:.85}
+@media(max-width:680px){.n-links{display:none}}
+
+/* ── HERO ── */
+.hero{
+  min-height:100vh;
+  display:flex;flex-direction:column;align-items:center;justify-content:center;
+  text-align:center;padding:80px max(40px,5vw) 60px;
+  position:relative;
+}
+.hero-eyebrow{
+  font-size:12px;font-weight:500;letter-spacing:.1em;text-transform:uppercase;
+  color:var(--acc);margin-bottom:24px;
+  display:inline-flex;align-items:center;gap:8px;
+}
+.hero-eyebrow span{
+  display:inline-block;width:6px;height:6px;border-radius:50%;
+  background:var(--acc2);animation:pulse 2s infinite;
+}
+@keyframes pulse{0%,100%{opacity:1}50%{opacity:.4}}
+.hero h1{
+  font-size:clamp(48px,9vw,96px);
+  font-weight:600;letter-spacing:-3.5px;line-height:.96;
+  color:var(--t1);max-width:800px;margin:0 auto 28px;
+}
+.hero h1 i{font-style:italic;font-weight:300;color:var(--t2)}
+.hero-sub{
+  font-size:clamp(17px,2.5vw,21px);font-weight:300;
+  color:var(--t2);max-width:480px;margin:0 auto 48px;line-height:1.6;
+}
+.hero-ctas{display:flex;gap:12px;justify-content:center;flex-wrap:wrap;margin-bottom:80px}
+.btn-solid{
+  font-size:15px;font-weight:500;
+  background:var(--acc);color:#fff;
+  border:none;border-radius:999px;padding:14px 28px;
+  cursor:pointer;transition:opacity .15s;display:inline-block;
+}
+.btn-solid:hover{opacity:.85}
+.btn-ghost{
+  font-size:15px;font-weight:400;
+  background:rgba(255,255,255,0.07);color:var(--t1);
+  border:0.5px solid var(--line);border-radius:999px;padding:14px 28px;
+  cursor:pointer;transition:all .15s;display:inline-block;
+}
+.btn-ghost:hover{background:rgba(255,255,255,0.1);border-color:rgba(255,255,255,.15)}
+.hero-metrics{
+  display:flex;gap:clamp(24px,5vw,56px);
+  border-top:0.5px solid var(--line);padding-top:40px;
+  flex-wrap:wrap;justify-content:center;
+}
+.m-item{text-align:center}
+.m-n{
+  font-size:clamp(24px,4vw,36px);font-weight:600;
+  letter-spacing:-1px;color:var(--t1);display:block;line-height:1;
+}
+.m-l{font-size:11px;letter-spacing:.07em;text-transform:uppercase;color:var(--t3);margin-top:6px;display:block}
+
+/* ── SECCIÓN BASE ── */
+.sec{padding:clamp(64px,10vw,120px) max(40px,5vw)}
+.sec-inner{max-width:1000px;margin:0 auto}
+.sec-eyebrow{
+  font-size:11px;font-weight:500;letter-spacing:.12em;text-transform:uppercase;
+  color:var(--t3);margin-bottom:40px;
+  display:flex;align-items:center;gap:12px;
+}
+.sec-eyebrow::before{content:'';width:20px;height:0.5px;background:var(--t3)}
+
+/* ── PROYECTOS ── */
+#proyectos{background:var(--bg1)}
+.proj-list{display:flex;flex-direction:column;gap:0}
+.proj-row{
+  display:grid;grid-template-columns:48px 1fr auto;
+  align-items:start;gap:24px;
+  padding:32px 0;border-top:0.5px solid var(--line);
+  transition:background .2s;
+  border-radius:4px;
+}
+.proj-row:last-child{border-bottom:0.5px solid var(--line)}
+.proj-row:hover{background:rgba(255,255,255,0.02);margin:0 -16px;padding-left:16px;padding-right:16px}
+.proj-num{
+  font-size:11px;font-weight:500;letter-spacing:.06em;color:var(--t3);
+  padding-top:4px;font-variant-numeric:tabular-nums;
+}
+.proj-body{}
+.proj-title-row{display:flex;align-items:baseline;gap:12px;margin-bottom:8px;flex-wrap:wrap}
+.proj-name{font-size:20px;font-weight:500;letter-spacing:-.4px;color:var(--t1)}
+.proj-badge{
+  font-size:10px;font-weight:500;letter-spacing:.06em;text-transform:uppercase;
+  padding:3px 9px;border-radius:999px;
+}
+.badge-live{background:rgba(48,209,88,0.12);color:var(--acc2);border:0.5px solid rgba(48,209,88,0.25)}
+.badge-dev{background:rgba(255,159,10,0.1);color:#ff9f0a;border:0.5px solid rgba(255,159,10,0.2)}
+.proj-desc{font-size:14px;color:var(--t2);line-height:1.65;max-width:560px;margin-bottom:16px}
+.proj-tags{display:flex;gap:6px;flex-wrap:wrap}
+.p-tag{
+  font-size:11px;color:var(--t3);
+  background:rgba(255,255,255,0.05);border:0.5px solid var(--line);
+  border-radius:6px;padding:3px 8px;
+}
+.proj-side{display:flex;flex-direction:column;align-items:flex-end;gap:12px;padding-top:4px;min-width:80px}
+.proj-score{font-size:28px;font-weight:600;letter-spacing:-1.5px;color:var(--t3)}
+.proj-score.s10{color:var(--t1)}
+.proj-link{
+  font-size:13px;color:var(--acc);
+  display:inline-flex;align-items:center;gap:4px;
+  white-space:nowrap;
+}
+.proj-link:hover{opacity:.8}
+.proj-link::after{content:'→';font-size:12px}
+
+/* ── STACK ── */
+#stack{background:var(--bg)}
+.stack-groups{display:grid;grid-template-columns:repeat(auto-fit,minmax(180px,1fr));gap:40px 32px;margin-top:8px}
+.stack-group h4{
+  font-size:11px;font-weight:500;letter-spacing:.1em;text-transform:uppercase;
+  color:var(--t3);margin-bottom:16px;
+}
+.stack-items-col{display:flex;flex-direction:column;gap:10px}
+.s-item{
+  font-size:14px;color:var(--t2);
+  display:flex;align-items:center;gap:10px;
+}
+.s-dot{width:5px;height:5px;border-radius:50%;flex-shrink:0}
+
+/* ── PROCESO ── */
+#proceso{background:var(--bg1);border-top:0.5px solid var(--line);border-bottom:0.5px solid var(--line)}
+.process-rows{display:flex;flex-direction:column;gap:0}
+.process-row{
+  display:grid;grid-template-columns:40px 1fr;gap:24px;
+  padding:28px 0;border-top:0.5px solid var(--line);
+}
+.process-row:last-child{border-bottom:0.5px solid var(--line)}
+.p-num{font-size:11px;font-weight:500;letter-spacing:.06em;color:var(--t3);padding-top:3px}
+.p-title{font-size:16px;font-weight:500;letter-spacing:-.2px;margin-bottom:6px;color:var(--t1)}
+.p-desc{font-size:14px;color:var(--t2);line-height:1.65;max-width:560px}
+
+/* ── CTA ── */
+#contacto{background:var(--bg)}
+.cta-inner{max-width:600px;margin:0 auto;text-align:center}
+.cta-inner h2{
+  font-size:clamp(36px,6vw,64px);font-weight:600;
+  letter-spacing:-2.5px;line-height:1.0;margin-bottom:20px;color:var(--t1);
+}
+.cta-inner h2 span{color:var(--acc)}
+.cta-inner p{font-size:17px;color:var(--t2);max-width:420px;margin:0 auto 40px;font-weight:300;line-height:1.65}
+.cta-btns{display:flex;gap:12px;justify-content:center;flex-wrap:wrap}
+
+/* ── FOOTER ── */
+footer{
+  border-top:0.5px solid var(--line);
+  padding:32px max(40px,5vw);
+  display:flex;justify-content:space-between;align-items:center;flex-wrap:wrap;gap:20px;
+}
+.f-brand{font-size:15px;font-weight:600;color:var(--t1)}
+.f-brand b{color:var(--acc)}
+.f-links{display:flex;gap:24px;flex-wrap:wrap}
+.f-links a{font-size:12px;color:var(--t3);transition:color .15s}
+.f-links a:hover{color:var(--t2)}
+.f-copy{font-size:11px;color:var(--t3)}
+@media(max-width:600px){footer{flex-direction:column;text-align:center}.f-links{justify-content:center}}
 </style>
 </head>
 <body>
 
+<!-- NAV -->
 <nav>
-  <a href="/" class="nav-brand">Vibe<span>Coding</span></a>
-  <ul class="nav-links">
-    <li><a href="#proyectos">Proyectos</a></li>
-    <li><a href="#stack">Stack</a></li>
-    <li><a href="#proceso">Proceso</a></li>
-    <li><a href="#contacto">Contacto</a></li>
-  </ul>
-  <a href="#contacto" class="nav-cta">Hablemos</a>
+  <a href="/" class="n-brand">Vibe<b>Coding</b></a>
+  <div class="n-links">
+    <a href="#proyectos">Proyectos</a>
+    <a href="#stack">Stack</a>
+    <a href="#proceso">Proceso</a>
+    <a href="#contacto">Contacto</a>
+  </div>
+  <a href="#contacto" class="n-cta">Hablemos</a>
 </nav>
 
+<!-- HERO -->
 <section class="hero">
-  <div class="hero-eyebrow">Playa del Carmen, Quintana Roo</div>
-  <h1>Software<br/>que <span class="y">funciona</span><br/>en <span class="g">producción.</span></h1>
-  <p class="hero-sub">Desarrollo de sistemas SaaS a medida para negocios reales en la Riviera Maya. Stack moderno, IA integrada, deploy en la nube.</p>
-  <div class="hero-actions">
-    <a href="#contacto" class="btn-p">Iniciar proyecto →</a>
-    <a href="#proyectos" class="btn-g">Ver portafolio</a>
+  <div class="hero-eyebrow">
+    <span></span>
+    Playa del Carmen, Quintana Roo — Build in Public
   </div>
-  <div class="hero-strip">
-    <div class="hero-stat"><span class="hero-stat-n">4</span><span class="hero-stat-l">Proyectos activos</span></div>
-    <div class="hero-stat"><span class="hero-stat-n">177</span><span class="hero-stat-l">Tests pasando</span></div>
-    <div class="hero-stat"><span class="hero-stat-n">3</span><span class="hero-stat-l">En producción</span></div>
-    <div class="hero-stat"><span class="hero-stat-n">9.1</span><span class="hero-stat-l">Score promedio</span></div>
+  <h1>Software que<br/><i>funciona</i><br/>en producción.</h1>
+  <p class="hero-sub">Sistemas SaaS a medida para negocios reales en la Riviera Maya. Stack moderno, IA integrada, deploy en la nube.</p>
+  <div class="hero-ctas">
+    <a href="#contacto" class="btn-solid">Iniciar proyecto →</a>
+    <a href="#proyectos" class="btn-ghost">Ver portafolio</a>
+  </div>
+  <div class="hero-metrics">
+    <div class="m-item"><span class="m-n">4</span><span class="m-l">Proyectos activos</span></div>
+    <div class="m-item"><span class="m-n">251</span><span class="m-l">Tests pasando</span></div>
+    <div class="m-item"><span class="m-n">4</span><span class="m-l">En producción</span></div>
+    <div class="m-item"><span class="m-n">9.4</span><span class="m-l">Score promedio</span></div>
   </div>
 </section>
 
-<section class="projects" id="proyectos">
-  <div class="section-label">Portafolio</div>
+<!-- PROYECTOS -->
+<section class="sec" id="proyectos">
+  <div class="sec-inner">
+    <div class="sec-eyebrow">Portafolio</div>
+    <div class="proj-list">
 
-  <div class="proj-grid">
-
-    <!-- PlayaMXCRM — featured -->
-    <div class="proj-card featured">
-      <div>
-        <div class="proj-number">01 — CRM Inmobiliario</div>
-        <div class="proj-title">PlayaMXCRM</div>
-        <p class="proj-desc">El CRM que piensa contigo. Gestión de rentas, ventas y condominios para la Riviera Maya con inteligencia artificial integrada, alertas automáticas y cumplimiento legal local.</p>
-        <div class="proj-tags">
-          <span class="ptag live">● En producción</span>
-          <span class="ptag">10/10</span>
-          <span class="ptag">166 tests</span>
-          <span class="ptag">12 módulos</span>
+      <!-- 01 PlayaMXCRM -->
+      <div class="proj-row">
+        <div class="proj-num">01</div>
+        <div class="proj-body">
+          <div class="proj-title-row">
+            <span class="proj-name">PlayaMXCRM</span>
+            <span class="proj-badge badge-live">En producción</span>
+          </div>
+          <p class="proj-desc">CRM inmobiliario con IA integrada para la Riviera Maya. Gestión de rentas, ventas y condominios, asistente de lenguaje natural, alertas automáticas y cumplimiento legal local.</p>
+          <div class="proj-tags">
+            <span class="p-tag">Next.js 16</span>
+            <span class="p-tag">NestJS</span>
+            <span class="p-tag">Groq AI</span>
+            <span class="p-tag">Neon</span>
+            <span class="p-tag">166 tests</span>
+            <span class="p-tag">12 módulos</span>
+          </div>
         </div>
-        <a href="https://playamxcrm.netlify.app" class="proj-link" target="_blank">Ver sitio →</a>
+        <div class="proj-side">
+          <span class="proj-score s10">10</span>
+          <a href="https://playamxcrm.netlify.app" class="proj-link" target="_blank">Ver sitio</a>
+        </div>
       </div>
-      <div class="proj-visual">
-        <div class="code-line"><span class="cm">// Asistente MLL — respuesta en tiempo real</span></div>
-        <div class="code-line"><span class="kw">const</span> análisis = <span class="kw">await</span> <span class="fn">mll</span>({</div>
-        <div class="code-line">&nbsp;&nbsp;<span class="str">query</span>: <span class="str">"¿Qué propiedades vencen este mes?"</span>,</div>
-        <div class="code-line">&nbsp;&nbsp;<span class="str">context</span>: pipeline.activos,</div>
-        <div class="code-line">});</div>
-        <div class="code-line">&nbsp;</div>
-        <div class="code-line"><span class="cm">// → { contratos: 3, riesgo: "ALTO", acción: "..." }</span></div>
-        <div class="code-line">&nbsp;</div>
-        <div class="code-line"><span class="kw">export</span> <span class="kw">const</span> stack = [</div>
-        <div class="code-line">&nbsp;&nbsp;<span class="str">"Next.js 16"</span>, <span class="str">"NestJS"</span>, <span class="str">"Neon"</span>,</div>
-        <div class="code-line">&nbsp;&nbsp;<span class="str">"Groq AI"</span>, <span class="str">"Render"</span>, <span class="str">"Vercel"</span>,</div>
-        <div class="code-line">];</div>
-      </div>
-    </div>
 
-    <!-- Ismerely-KB -->
-    <div class="proj-card">
-      <div class="proj-score">9</div>
-      <div class="proj-number">02 — Knowledge Base</div>
-      <div class="proj-title">Ismerely-KB</div>
-      <p class="proj-desc">Plataforma de conocimiento en nutrición funcional, herbolaria y bienestar. Búsqueda full-text multi-campo, import PDF/Excel, protocolos y alertas.</p>
-      <div class="proj-tags">
-        <span class="ptag live">● En producción</span>
-        <span class="ptag">9/10</span>
-        <span class="ptag">Next.js 15</span>
+      <!-- 02 Bienestar KB -->
+      <div class="proj-row">
+        <div class="proj-num">02</div>
+        <div class="proj-body">
+          <div class="proj-title-row">
+            <span class="proj-name">Bienestar Integral KB</span>
+            <span class="proj-badge badge-live">En producción</span>
+          </div>
+          <p class="proj-desc">Plataforma de conocimiento en nutrición funcional, herbolaria y bienestar integral. Catálogo de productos, módulo de herbolaria con 41 plantas, alertas médicas COFEPRIS e importación de PDFs.</p>
+          <div class="proj-tags">
+            <span class="p-tag">Next.js</span>
+            <span class="p-tag">Prisma</span>
+            <span class="p-tag">Neon</span>
+            <span class="p-tag">Groq AI</span>
+          </div>
+        </div>
+        <div class="proj-side">
+          <span class="proj-score s10">9</span>
+          <a href="https://bienestar-integral-kb.vercel.app" class="proj-link" target="_blank">Ver sitio</a>
+        </div>
       </div>
-      <a href="https://ismerely-kb.vercel.app" class="proj-link" target="_blank">Ver sitio →</a>
-    </div>
 
-    <!-- Rectificadora -->
-    <div class="proj-card">
-      <div class="proj-score">10</div>
-      <div class="proj-number">03 — ERP Industrial</div>
-      <div class="proj-title">Riviera Industrial ERP</div>
-      <p class="proj-desc">ERP completo con portal cliente, producción en tiempo real, WhatsApp, calculadoras de ingeniería, checklist de campo y mantenimiento programado.</p>
-      <div class="proj-tags">
-        <span class="ptag live">● En producción</span>
-        <span class="ptag">10/10</span>
-        <span class="ptag">Next.js 14</span>
+      <!-- 03 Riviera ERP -->
+      <div class="proj-row">
+        <div class="proj-num">03</div>
+        <div class="proj-body">
+          <div class="proj-title-row">
+            <span class="proj-name">Riviera Industrial ERP</span>
+            <span class="proj-badge badge-live">En producción</span>
+          </div>
+          <p class="proj-desc">ERP de manufactura y rectificación industrial en Playa del Carmen. Portal cliente, producción en tiempo real con timers, notificaciones WhatsApp, calculadoras de ingeniería y checklist de diagnóstico de campo.</p>
+          <div class="proj-tags">
+            <span class="p-tag">Next.js 14</span>
+            <span class="p-tag">Prisma</span>
+            <span class="p-tag">NextAuth</span>
+            <span class="p-tag">Twilio</span>
+            <span class="p-tag">74 tests</span>
+            <span class="p-tag">6 sprints</span>
+          </div>
+        </div>
+        <div class="proj-side">
+          <span class="proj-score s10">10</span>
+          <a href="https://riviera-industrial.netlify.app" class="proj-link" target="_blank">Ver sitio</a>
+        </div>
       </div>
-      <a href="https://riviera-industrial.netlify.app" class="proj-link" target="_blank">Ver sitio →</a>
-    </div>
 
-    <!-- Lavandería -->
-    <div class="proj-card" style="grid-column:span 2">
-      <div class="proj-score">6</div>
-      <div class="proj-number">04 — Operaciones</div>
-      <div class="proj-title">Lavandería CRM</div>
-      <p class="proj-desc">Sistema de gestión para lavandería en Real Ibiza, Playa del Carmen. Órdenes, clientes, zonas de entrega con colores, reglas de precio por kg y roles para operadores y repartidores.</p>
-      <div class="proj-tags">
-        <span class="ptag dev">◐ En desarrollo</span>
-        <span class="ptag">6/10</span>
-        <span class="ptag">NestJS</span>
-        <span class="ptag">Next.js 14</span>
+      <!-- 04 Lavandería CRM -->
+      <div class="proj-row">
+        <div class="proj-num">04</div>
+        <div class="proj-body">
+          <div class="proj-title-row">
+            <span class="proj-name">Lavandería CRM</span>
+            <span class="proj-badge badge-live">En producción</span>
+          </div>
+          <p class="proj-desc">Sistema de gestión para lavandería en Real Ibiza, Playa del Carmen. Kanban de órdenes con drag-and-drop, vista móvil para repartidores, formulario de reserva público y 18 tests E2E en producción.</p>
+          <div class="proj-tags">
+            <span class="p-tag">Next.js</span>
+            <span class="p-tag">Neon</span>
+            <span class="p-tag">18 tests E2E</span>
+          </div>
+        </div>
+        <div class="proj-side">
+          <span class="proj-score">8</span>
+          <a href="https://lavanderia-crm.vercel.app" class="proj-link" target="_blank">Ver sitio</a>
+        </div>
       </div>
-    </div>
 
-  </div>
-</section>
-
-<section class="stack" id="stack">
-  <div class="section-label">Stack tecnológico</div>
-  <div class="stack-items">
-    <div class="stack-item"><span class="stack-dot" style="background:#0070f3"></span>Next.js 14–16</div>
-    <div class="stack-item"><span class="stack-dot" style="background:#e0234e"></span>NestJS</div>
-    <div class="stack-item"><span class="stack-dot" style="background:#2d3748"></span>PostgreSQL 16</div>
-    <div class="stack-item"><span class="stack-dot" style="background:#00e699"></span>Neon (serverless DB)</div>
-    <div class="stack-item"><span class="stack-dot" style="background:#000"></span>Vercel</div>
-    <div class="stack-item"><span class="stack-dot" style="background:#46e3b7"></span>Render</div>
-    <div class="stack-item"><span class="stack-dot" style="background:#3178c6"></span>TypeScript</div>
-    <div class="stack-item"><span class="stack-dot" style="background:#2d79c7"></span>Prisma ORM</div>
-    <div class="stack-item"><span class="stack-dot" style="background:#f1502f"></span>Docker</div>
-    <div class="stack-item"><span class="stack-dot" style="background:#e8ff47"></span>Groq AI (Llama 3.3)</div>
-    <div class="stack-item"><span class="stack-dot" style="background:#6366f1"></span>Vitest</div>
-    <div class="stack-item"><span class="stack-dot" style="background:#22c55e"></span>GitHub Actions CI/CD</div>
-    <div class="stack-item"><span class="stack-dot" style="background:#06b6d4"></span>Tailwind CSS</div>
-    <div class="stack-item"><span class="stack-dot" style="background:#ff6b6b"></span>Zod</div>
-  </div>
-</section>
-
-<section class="process" id="proceso">
-  <div class="process-inner">
-    <div class="section-label">Proceso de trabajo</div>
-    <div class="process-grid">
-      <div class="process-step">
-        <div class="step-n">01</div>
-        <div class="step-title">Diagnóstico</div>
-        <p class="step-desc">Entendemos el negocio, los flujos actuales y los puntos de dolor. Definimos el alcance y la arquitectura en una sesión.</p>
-      </div>
-      <div class="process-step">
-        <div class="step-n">02</div>
-        <div class="step-title">Diseño técnico</div>
-        <p class="step-desc">Schema de datos, API routes, módulos del sistema. Todo documentado antes de escribir la primera línea de código.</p>
-      </div>
-      <div class="process-step">
-        <div class="step-n">03</div>
-        <div class="step-title">Desarrollo iterativo</div>
-        <p class="step-desc">Sprints cortos con entregas reales. Tests automatizados desde el día uno. Deploy continuo para feedback inmediato.</p>
-      </div>
-      <div class="process-step">
-        <div class="step-n">04</div>
-        <div class="step-title">Producción</div>
-        <p class="step-desc">Hardening de seguridad, CI/CD en verde, monitoring activo. El sistema vive en la nube y escala con el negocio.</p>
-      </div>
     </div>
   </div>
 </section>
 
-<section class="cta" id="contacto">
-  <h2>¿Tienes un<br/><span>proyecto</span> en mente?</h2>
-  <p>De la idea al deploy. Software que resuelve problemas reales para negocios en la Riviera Maya.</p>
-  <div class="cta-btns">
-    <a href="mailto:roberto.luna.osorio84@gmail.com" class="btn-p">Enviar mensaje →</a>
-    <a href="https://wa.link/nm291n" class="btn-g" target="_blank">WhatsApp</a>
+<!-- STACK -->
+<section class="sec" id="stack">
+  <div class="sec-inner">
+    <div class="sec-eyebrow">Stack tecnológico</div>
+    <div class="stack-groups">
+      <div class="stack-group">
+        <h4>Frontend</h4>
+        <div class="stack-items-col">
+          <div class="s-item"><span class="s-dot" style="background:#0070f3"></span>Next.js 14–16</div>
+          <div class="s-item"><span class="s-dot" style="background:#06b6d4"></span>Tailwind CSS</div>
+          <div class="s-item"><span class="s-dot" style="background:#6366f1"></span>shadcn/ui</div>
+          <div class="s-item"><span class="s-dot" style="background:#3178c6"></span>TypeScript</div>
+        </div>
+      </div>
+      <div class="stack-group">
+        <h4>Backend</h4>
+        <div class="stack-items-col">
+          <div class="s-item"><span class="s-dot" style="background:#e0234e"></span>NestJS</div>
+          <div class="s-item"><span class="s-dot" style="background:#2d79c7"></span>Prisma ORM</div>
+          <div class="s-item"><span class="s-dot" style="background:#336791"></span>PostgreSQL 16</div>
+          <div class="s-item"><span class="s-dot" style="background:#ff6b6b"></span>Zod</div>
+        </div>
+      </div>
+      <div class="stack-group">
+        <h4>Infraestructura</h4>
+        <div class="stack-items-col">
+          <div class="s-item"><span class="s-dot" style="background:#000"></span>Vercel</div>
+          <div class="s-item"><span class="s-dot" style="background:#00e699"></span>Neon Serverless</div>
+          <div class="s-item"><span class="s-dot" style="background:#46e3b7"></span>Render</div>
+          <div class="s-item"><span class="s-dot" style="background:#f1502f"></span>Docker</div>
+        </div>
+      </div>
+      <div class="stack-group">
+        <h4>IA & Calidad</h4>
+        <div class="stack-items-col">
+          <div class="s-item"><span class="s-dot" style="background:#e8ff47"></span>Groq / Llama 4</div>
+          <div class="s-item"><span class="s-dot" style="background:#6366f1"></span>Vitest</div>
+          <div class="s-item"><span class="s-dot" style="background:#22c55e"></span>GitHub Actions CI/CD</div>
+          <div class="s-item"><span class="s-dot" style="background:#7c3aed"></span>Sentry</div>
+        </div>
+      </div>
+    </div>
   </div>
 </section>
 
+<!-- PROCESO -->
+<section class="sec" id="proceso">
+  <div class="sec-inner">
+    <div class="sec-eyebrow">Cómo trabajo</div>
+    <div class="process-rows">
+      <div class="process-row">
+        <div class="p-num">01</div>
+        <div>
+          <div class="p-title">Diagnóstico</div>
+          <p class="p-desc">Entiendo el negocio, los flujos actuales y los puntos de dolor. Definimos el alcance y la arquitectura antes de escribir una línea de código.</p>
+        </div>
+      </div>
+      <div class="process-row">
+        <div class="p-num">02</div>
+        <div>
+          <div class="p-title">Diseño técnico</div>
+          <p class="p-desc">Schema de datos, API routes, módulos del sistema. Todo documentado en CLAUDE.md + contexto de proyecto antes del primer commit.</p>
+        </div>
+      </div>
+      <div class="process-row">
+        <div class="p-num">03</div>
+        <div>
+          <div class="p-title">Desarrollo iterativo</div>
+          <p class="p-desc">Sprints cortos con entregas reales. Tests automatizados desde el día uno. Deploy continuo para feedback inmediato. Linear + ClickUp para trazabilidad.</p>
+        </div>
+      </div>
+      <div class="process-row">
+        <div class="p-num">04</div>
+        <div>
+          <div class="p-title">Producción</div>
+          <p class="p-desc">CI/CD en verde, monitoring con Sentry, backups automáticos. El sistema vive en la nube y escala con el negocio.</p>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- CTA -->
+<section class="sec" id="contacto">
+  <div class="cta-inner">
+    <h2>¿Tienes un<br/><span>proyecto</span>?</h2>
+    <p>De la idea al deploy. Sistemas que resuelven problemas reales para negocios en la Riviera Maya.</p>
+    <div class="cta-btns">
+      <a href="mailto:zaero.hell@gmail.com" class="btn-solid">Enviar mensaje →</a>
+      <a href="https://wa.link/nm291n" class="btn-ghost" target="_blank">WhatsApp</a>
+    </div>
+  </div>
+</section>
+
+<!-- FOOTER -->
 <footer>
-  <div class="foot-brand">Vibe<span>Coding</span></div>
-  <div class="foot-links">
+  <div class="f-brand">Vibe<b>Coding</b></div>
+  <div class="f-links">
     <a href="https://playamxcrm.netlify.app" target="_blank">PlayaMXCRM</a>
-    <a href="https://ismerely-kb.vercel.app" target="_blank">Ismerely-KB</a>
-    <a href="https://riviera-industrial.netlify.app" target="_blank">Riviera ERP</a>
+    <a href="https://bienestar-integral-kb.vercel.app" target="_blank">Bienestar KB</a>
+    <a href="https://riviera-industrial.netlify.app" target="_blank">Riviera Industrial</a>
+    <a href="https://lavanderia-crm.vercel.app" target="_blank">Lavandería CRM</a>
+    <a href="https://vibecoding-dashboard.vercel.app" target="_blank">Dashboard</a>
   </div>
-  <div class="foot-copy">© 2026 VibeCoding · Playa del Carmen, Q.Roo</div>
+  <div class="f-copy">© 2026 VibeCoding · Roberto Luna Osorio · Playa del Carmen, Q.Roo</div>
 </footer>
 
 </body>
